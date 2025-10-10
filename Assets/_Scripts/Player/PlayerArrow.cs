@@ -11,7 +11,6 @@ namespace _Project
 
         [SerializeField] private RotateComponent _rotate;
 
-        private DirectionType _currentDirection = DirectionType.Up;
         private IUserInput _userInput;
 
         public bool IsRotated { get; private set; } = false;

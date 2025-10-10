@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace _Project
@@ -7,7 +6,8 @@ namespace _Project
     [RequireComponent(typeof(PlayerAnimator))]
     public class PlayerMover : MonoBehaviour
     {
-        [SerializeField] private float _moveDuration = 1f;
+        [SerializeField] private float _jumpHeight = 1;
+        [SerializeField] private float _jumpDuration = 0.5f;
         [SerializeField] private float _offsetPosY;
         [SerializeField] private RotateComponent _rotateComponent;
 
@@ -32,13 +32,19 @@ namespace _Project
 
             IsMoved = true;
             _playerAnimator.MoveState(true);
-            Vector3 startPosition = transform.position;
-            float elapsed = 0f;
-
-            while (elapsed < _moveDuration)
+            Vector3 start = transform.position;
+            float time = 0f;
+            while (time < _jumpDuration)
             {
-                transform.position = Vector3.Lerp(startPosition, targetPosition, elapsed / _moveDuration);
-                elapsed += Time.deltaTime;
+                time += Time.deltaTime;
+                float t = time / _jumpDuration;
+
+                Vector3 horizontalPos = Vector3.Lerp(start, targetPosition, t);
+
+                float height = _jumpHeight * 4 * t * (1 - t);
+
+                transform.position = new Vector3(horizontalPos.x, start.y + height, horizontalPos.z);
+
                 yield return null;
             }
 
