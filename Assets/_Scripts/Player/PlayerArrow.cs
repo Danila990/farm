@@ -6,9 +6,6 @@ namespace _Project
 {
     public class PlayerArrow : MonoBehaviour
     {
-        [SerializeField] private GameObject _arrow;
-        [SerializeField] private float _rotateDuration = 0.2f;
-
         [SerializeField] private RotateComponent _rotate;
 
         private IUserInput _userInput;

@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+    
 namespace _Project
 {
     [RequireComponent(typeof(PlayerAnimator))]
@@ -40,9 +40,7 @@ namespace _Project
                 float t = time / _jumpDuration;
 
                 Vector3 horizontalPos = Vector3.Lerp(start, targetPosition, t);
-
                 float height = _jumpHeight * 4 * t * (1 - t);
-
                 transform.position = new Vector3(horizontalPos.x, start.y + height, horizontalPos.z);
 
                 yield return null;
