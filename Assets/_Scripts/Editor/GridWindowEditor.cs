@@ -118,7 +118,7 @@ namespace _Project.GridWindow
             if (_player != null)
                 DestroyPlayer();
 
-            string[] guids = AssetDatabase.FindAssets("Player t:Prefab", new[] { "Assets/Content/Prefabs" });
+            string[] guids = AssetDatabase.FindAssets("Player t:prefab", new[] { "Assets/Content/Prefabs" });
             foreach (string guid in guids)
             {
                 string path = AssetDatabase.GUIDToAssetPath(guid);

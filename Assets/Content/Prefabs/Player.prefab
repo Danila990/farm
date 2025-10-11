@@ -120,11 +120,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4463848728143235742}
-  - component: {fileID: 9139731503954597885}
-  - component: {fileID: 4653169009508396842}
-  - component: {fileID: 5426692281781623691}
-  - component: {fileID: -4728806378026043517}
-  - component: {fileID: 8260117442426806817}
+  - component: {fileID: 5838990521985722728}
+  - component: {fileID: 5671283813870681157}
+  - component: {fileID: 3000521306301976014}
+  - component: {fileID: 7373306196748266352}
+  - component: {fileID: 1385292044770235602}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -141,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 1321867399923938073}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91.8455, y: 0.2, z: 23.728786}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -150,49 +150,7 @@ Transform:
   - {fileID: 5429392700688458256}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9139731503954597885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321867399923938073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b2395fa0a0385b488661df21f3a73f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerMover
-  _jumpHeight: 1
-  _jumpDuration: 0.5
-  _offsetPosY: 0
-  _rotateComponent:
-    _rotateDuration: 0.2
-    _rotate: {fileID: 6229112810299565135}
---- !u!114 &4653169009508396842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321867399923938073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 967f55e48fb33a04e849586d4469dd32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerAnimator
---- !u!114 &5426692281781623691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321867399923938073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4f45d851738d50489d3558f1dd2f14e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerGrid
---- !u!114 &-4728806378026043517
+--- !u!114 &5838990521985722728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,7 +162,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991250f0006efb64c9bbd98d5ac21af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Player
---- !u!114 &8260117442426806817
+--- !u!114 &5671283813870681157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321867399923938073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 967f55e48fb33a04e849586d4469dd32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerAnimator
+--- !u!114 &3000521306301976014
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,11 +186,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c151e1d705bcb4098e629cf46fb92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerArrow
-  _arrow: {fileID: 3434922443434106615}
-  _rotateDuration: 1
   _rotate:
     _rotateDuration: 0.2
     _rotate: {fileID: 5429392700688458256}
+--- !u!114 &7373306196748266352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321867399923938073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee2df30870863d40a445b7209d22210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerMover
+  _jumpHeight: 1
+  _jumpDuration: 0.5
+  _offsetPosY: 0
+  _rotateComponent:
+    _rotateDuration: 0.2
+    _rotate: {fileID: 6229112810299565135}
+--- !u!114 &1385292044770235602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321867399923938073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 798969e13bf037349ad5790edb45b02b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerGrid
 --- !u!1 &1348711727133602642
 GameObject:
   m_ObjectHideFlags: 0

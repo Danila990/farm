@@ -8,22 +8,22 @@ namespace _Project
     {
         [SerializeField] private PlayerFactory _factory;
 
+        private Player _player;
+
         private void Start()
         {
-            Player player = _factory.CreatePlayer();
-
+            //_player = _factory.CreatePlayer();
         }
     }
 
     [Serializable]
     public class PlayerFactory
     {
-        [SerializeField] private Player _prefab;
-        [SerializeField] private PlayerStats _stats;
+        [SerializeField] private PlayerSo _data;
 
         public Player CreatePlayer()
         {
-            Player player = Object.Instantiate(_prefab);
+            Player player = Object.Instantiate(_data.playerInfo.prefab);
 
             return player;
         }

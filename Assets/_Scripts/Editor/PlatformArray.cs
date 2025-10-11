@@ -9,7 +9,7 @@ namespace _Project.GridWindow
         public void Enable()
         {
             List<Platform> list = new List<Platform>();
-            string[] guids = AssetDatabase.FindAssets("Platform t:Prefab", new[] { "Assets/Content/Prefabs/Platforms" });
+            string[] guids = AssetDatabase.FindAssets("Platform t:prefab", new[] { "Assets/Content/Prefabs/Platforms" });
             foreach (string guid in guids)
             {
                 string path = AssetDatabase.GUIDToAssetPath(guid);
