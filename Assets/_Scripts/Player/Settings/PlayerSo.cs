@@ -13,7 +13,6 @@ namespace _Project
     [Serializable]
     public class PlayerInfo
     {
-        [field: SerializeField] public Player prefab { get; private set; }
         [field: SerializeField] public float modelOffsetY { get; private set; } = 0;
         [field: SerializeField, Range(0, 1),] public float rotateDuration { get; private set; } = 0.5f;
         [field: SerializeField, Range(0, 1)] public float jumpDuration { get; private set; } = 0.5f;
@@ -23,7 +22,6 @@ namespace _Project
     [Serializable]
     public class ArrowInfo
     {
-        [field: SerializeField] public PlayerArrow prefab { get; private set; }
         [field: SerializeField] public float modelOffsetY { get; private set; } = 5;
         [field: SerializeField, Range(0, 1),] public float rotateDuration { get; private set; } = 0.2f;
     }

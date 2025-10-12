@@ -1,15 +1,17 @@
 using System.Collections;
 using UnityEngine;
-    
+using UnityObjectResolver;
+
 namespace _Project
 {
     [RequireComponent(typeof(PlayerAnimator))]
     public class PlayerMover : MonoBehaviour
     {
-        [SerializeField] private float _jumpHeight = 1;
-        [SerializeField] private float _jumpDuration = 0.5f;
-        [SerializeField] private float _offsetPosY;
-        [SerializeField] private RotateComponent _rotateComponent;
+        [SerializeField] private Transform _rotateModel;
+
+        private float _jumpHeight = 1;
+        private float _jumpDuration = 0.5f;
+        private RotateComponent _rotateComponent;
 
         private PlayerAnimator _playerAnimator;
 
@@ -18,7 +20,12 @@ namespace _Project
 
         private void Start()
         {
+            ObjectResolver.Scene.Resolve(out PlayerInfo playerInfo);
+
             _playerAnimator = GetComponent<PlayerAnimator>();
+            _jumpHeight = playerInfo.jumpHeigh;
+            _jumpDuration = playerInfo.jumpDuration;
+            _rotateComponent = new RotateComponent(playerInfo.rotateDuration, _rotateModel);
         }
 
         public IEnumerator Rotate(DirectionType direction)

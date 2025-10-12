@@ -186,9 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c151e1d705bcb4098e629cf46fb92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerArrow
-  _rotate:
-    _rotateDuration: 0.2
-    _rotate: {fileID: 5429392700688458256}
+  _arrow: {fileID: 5429392700688458256}
 --- !u!114 &7373306196748266352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,12 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee2df30870863d40a445b7209d22210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerMover
-  _jumpHeight: 1
-  _jumpDuration: 0.5
-  _offsetPosY: 0
-  _rotateComponent:
-    _rotateDuration: 0.2
-    _rotate: {fileID: 6229112810299565135}
+  _rotateModel: {fileID: 6229112810299565135}
 --- !u!114 &1385292044770235602
 MonoBehaviour:
   m_ObjectHideFlags: 0

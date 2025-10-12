@@ -7,11 +7,17 @@ namespace _Project
     [Serializable]
     public class RotateComponent
     {
-        [SerializeField] private float _rotateDuration = 0.2f;
-        [SerializeField] private Transform _rotate;
+        private float _rotateDuration = 0.2f;
+        private Transform _rotate;
 
         public DirectionType CurrentDirection { get; private set; } = DirectionType.Up;
         public bool IsRotated { get; private set; } = false;
+
+        public RotateComponent(float rotateDuration, Transform rotate)
+        {
+            _rotateDuration = rotateDuration;
+            _rotate = rotate;
+        }
 
         public IEnumerator Rotate(DirectionType direction)
         {

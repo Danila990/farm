@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityObjectResolver;
 
 namespace _Project
 {
@@ -10,15 +9,7 @@ namespace _Project
         private BaseUserInput _userInput;
         private bool _isActive = false;
 
-        private void Awake()
-        {
-            CreateUserInput();
-            Active();
-
-            ObjectResolver.Scene
-                .Register(this)
-                .Register<IUserInput>(_userInput);
-        }
+        public IUserInput UserInput => _userInput;
 
         private void Update()
         {
@@ -37,7 +28,7 @@ namespace _Project
             _isActive = false;
         }
 
-        private void CreateUserInput()
+        public IUserInput CreateUserInput()
         {
             switch (_userType)
             {
@@ -52,6 +43,8 @@ namespace _Project
                 default:
                     break;
             }
+
+            return _userInput;
         }
     }
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityObjectResolver;
 
@@ -6,15 +5,20 @@ namespace _Project
 {
     public class PlayerArrow : MonoBehaviour
     {
-        [SerializeField] private RotateComponent _rotate;
+        [SerializeField] private Transform _arrow;
 
         private IUserInput _userInput;
+        private RotateComponent _rotate;
 
         public bool IsRotated { get; private set; } = false;
 
         private void Start()
         {
-            _userInput = ObjectResolver.Scene.Resolve<IUserInput>();
+            ObjectResolver.Scene
+                .Resolve(out _userInput)
+                .Resolve(out ArrowInfo arrowInfo);
+
+            _rotate = new RotateComponent(arrowInfo.rotateDuration, _arrow);
             _userInput.OnDirectionInput += RotateToDirection;
         }
 

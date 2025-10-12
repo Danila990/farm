@@ -1,19 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityObjectResolver;
 
 namespace _Project
 {
     public class GridMap : MonoBehaviour, IGridMap
     {
         [SerializeField] private TwoArray<Platform> _grid = new TwoArray<Platform>();
-
-        private void Awake()
-        {
-            ObjectResolver.Scene.Register<IGridMap>(this);
-        }
 
         public void SetupMap(ArrayLine<Platform>[] values) => _grid.Set(values);
 

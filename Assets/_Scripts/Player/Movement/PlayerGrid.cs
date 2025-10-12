@@ -17,11 +17,14 @@ namespace _Project
         private void Start()
         {
             _playerMover = GetComponent<PlayerMover>();
-            ObjectResolver.Scene.Resolve(out _map);
+            ObjectResolver.Scene
+                .Resolve(out _map)
+                .Resolve(out _userInput);
+
             Platform playerPlatform = _map.FindPlatform(PlatformType.StartPlayer);
             PlayerIndex = playerPlatform.Index;
             transform.position = playerPlatform.transform.position;
-            _userInput = ObjectResolver.Scene.Resolve<IUserInput>();
+
             _userInput.OnDirectionInput += DirectionIput;
         }
 
