@@ -17,6 +17,7 @@ namespace _Project.GridWindow
         [SerializeField] private GridMap _gridMap;
         [SerializeField] private PlatformArray _platforms;
         [SerializeField] private Player _player;
+        [SerializeField] private PlayerArrow _arrow;
 
         private float _offsetPlatform = 2f;
         private Vector2Int _sizeGrid = new Vector2Int(1, 1);
@@ -56,12 +57,14 @@ namespace _Project.GridWindow
             {
                 CreateGrid();
                 CreatePlayer();
+                CreateArrow();
             }
 
             if (GUILayout.Button("Destroy Grid Map"))
             {
                 DestroyGrid();
                 DestroyPlayer();
+                DestroyArrow();
             }
             EditorGUILayout.EndHorizontal();
 
@@ -93,6 +96,7 @@ namespace _Project.GridWindow
             LevelEditorExtension.SerializedCustomPropetry(this, "_platforms");
             LevelEditorExtension.SerializedCustomPropetry(this, "_gridMap");
             LevelEditorExtension.SerializedCustomPropetry(this, "_player");
+            LevelEditorExtension.SerializedCustomPropetry(this, "_arrow");
             _platforms.Enable();
             _offsetPlatform = EditorGUILayout.FloatField(new GUIContent("Offset Platform", "Distance between platforms"), _offsetPlatform);
         }
@@ -143,6 +147,40 @@ namespace _Project.GridWindow
             if (_player == null) return;
 
             DestroyImmediate(_player.gameObject);
+        }
+
+        private void CreateArrow()
+        {
+            if (_gridMap == null) return;
+
+            if (_arrow != null)
+                DestroyArrow();
+
+            string[] guids = AssetDatabase.FindAssets("Arrow t:prefab", new[] { "Assets/Content/Prefabs" });
+            foreach (string guid in guids)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                PlayerArrow prefab = AssetDatabase.LoadAssetAtPath<PlayerArrow>(path);
+
+                if (prefab != null)
+                {
+                    _arrow = Instantiate(prefab);
+                    _arrow.transform.position = _gridMap.FindPlatform(PlatformType.StartPlayer).transform.position;
+                    Undo.RegisterCreatedObjectUndo(_arrow.gameObject, "Create Arrow");
+                    EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
+                    break;
+                }
+            }
+
+            if (_arrow == null)
+                throw new NullReferenceException("Arrow Create Error");
+        }
+
+        private void DestroyArrow()
+        {
+            if (_arrow == null) return;
+
+            DestroyImmediate(_arrow.gameObject);
         }
 
         private PlatformType[,] ConvertGrid()

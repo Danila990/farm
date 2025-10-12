@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67209219d30f0ac4ebfc911bf72a724e, type: 3}
   m_Name: PlayerSo
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSo
+  <playerInfo>k__BackingField:
+    <rotateDuration>k__BackingField: 0.15
+    <jumpDuration>k__BackingField: 0.5
+    <jumpHeigh>k__BackingField: 2
+  <arrowInfo>k__BackingField:
+    <modelOffsetY>k__BackingField: 4
+    <rotateDuration>k__BackingField: 0.2
