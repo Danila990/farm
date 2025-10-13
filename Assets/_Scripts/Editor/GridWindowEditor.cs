@@ -19,7 +19,7 @@ namespace _Project.GridWindow
         /*[SerializeField] private Player _player;
         [SerializeField] private PlayerArrow _arrow;*/
 
-        private float _offsetPlatform = 2f;
+        private float _offsetPlatform = 3f;
         private Vector2Int _sizeGrid = new Vector2Int(1, 1);
         private ConstructorLine[] _linesX;
 
@@ -30,6 +30,7 @@ namespace _Project.GridWindow
         {
             ResetGrid();
             StartFind();
+            _sizeGrid = new Vector2Int(_linesX.Length, _linesX[0].lineY.Length);
         }
 
         private void OnGUI()
@@ -48,7 +49,8 @@ namespace _Project.GridWindow
             /*_player = FindFirstObjectByType<Player>();
             _arrow = FindFirstObjectByType<PlayerArrow>();*/
 
-            ConverToPreviewGrid();
+            //ConverToPreviewGrid();
+            ConverToPreviewGridMood();
         }
 
         private void DrawActionButtons()
@@ -185,6 +187,27 @@ namespace _Project.GridWindow
             DestroyImmediate(_arrow.gameObject);
         }*/
 
+        private PlatformType[,] ConvertGridMood()
+        {
+            PlatformType[,] platfromTypes = ConvertGrid();
+            int originalWidth = platfromTypes.GetLength(0);
+            int originalHeight = platfromTypes.GetLength(1);
+
+            int width = originalWidth + 2;
+            int height = originalHeight + 2;
+            PlatformType[,] gridPlatforms = new PlatformType[width, height];
+
+            for (int x = 0; x < width; x++)
+                for (int y = 0; y < height; y++)
+                    gridPlatforms[x, y] = PlatformType.Empty;
+
+            for (int x = 0; x < originalWidth; x++)
+                for (int y = 0; y < originalHeight; y++)
+                    gridPlatforms[x + 1, y + 1] = platfromTypes[x, y];
+
+            return gridPlatforms;
+        }
+
         private PlatformType[,] ConvertGrid()
         {
             if (_linesX == null || _linesX.Length == 0) return new PlatformType[0, 0];
@@ -208,7 +231,7 @@ namespace _Project.GridWindow
             if (_gridMap != null)
                 DestroyGrid();
 
-            PlatformType[,] platfromTypes = ConvertGrid();
+            PlatformType[,] platfromTypes = ConvertGridMood();
             Vector2Int gridSize = new Vector2Int(platfromTypes.GetLength(0), platfromTypes.GetLength(1));
             Vector3 spawnOffset = MiddleOffest(_offsetPlatform, gridSize);
 
@@ -217,10 +240,13 @@ namespace _Project.GridWindow
             ArrayLine<Platform>[] grid = new ArrayLine<Platform>[gridSize.x];
             for (int x = 0; x < gridSize.x; x++)
             {
+                Transform parrentLine = new GameObject("Line " + x).transform;
+                parrentLine.parent = _gridMap.transform;
                 grid[x].Values = new Platform[gridSize.y];
                 for (int y = 0; y < gridSize.y; y++)
                 {
                     Platform platform = CreatePlatform(platfromTypes[x, y], x, y, spawnOffset);
+                    platform.transform.parent = parrentLine;
                     grid[x].Values[y] = platform;
                     platform.SetIndex(new Vector2Int(x, y));
                     platform.gameObject.name = $"{x}, {y}";
@@ -258,6 +284,25 @@ namespace _Project.GridWindow
         #endregion
 
         #region Preview Grid Drawing
+
+        private void ConverToPreviewGridMood()
+        {
+            if (_gridMap == null) return;
+
+            var platforms = _gridMap.GetPlatforms();
+
+            _linesX = new ConstructorLine[platforms.Length - 2];
+
+            for (int x = 1; x < platforms.Length - 1; x++)
+            {
+                _linesX[x - 1] = new ConstructorLine();
+                _linesX[x - 1].lineY = new PlatformType[platforms[x].Values.Length - 2];
+                for (int y = 1; y < platforms[x].Values.Length - 1; y++)
+                {
+                    _linesX[x - 1].lineY[y - 1] = platforms[x].Values[y].platformType;
+                }
+            }
+        }
 
         private void ConverToPreviewGrid()
         {
