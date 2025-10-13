@@ -8,6 +8,8 @@ namespace _Project
     {
         [field: SerializeField] public PlayerInfo playerInfo { get; private set; }
         [field: SerializeField] public ArrowInfo arrowInfo { get; private set; }
+        [field: SerializeField] public Player playerPrefab { get; private set; }
+        [field: SerializeField] public PlayerArrow arrowPrefab { get; private set; }
     }
 
     [Serializable]

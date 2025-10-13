@@ -16,8 +16,8 @@ namespace _Project.GridWindow
     {
         [SerializeField] private GridMap _gridMap;
         [SerializeField] private PlatformArray _platforms;
-        [SerializeField] private Player _player;
-        [SerializeField] private PlayerArrow _arrow;
+        /*[SerializeField] private Player _player;
+        [SerializeField] private PlayerArrow _arrow;*/
 
         private float _offsetPlatform = 2f;
         private Vector2Int _sizeGrid = new Vector2Int(1, 1);
@@ -44,8 +44,9 @@ namespace _Project.GridWindow
 
         private void StartFind()
         {
-            _player = FindFirstObjectByType<Player>();
             _gridMap = FindFirstObjectByType<GridMap>();
+            /*_player = FindFirstObjectByType<Player>();
+            _arrow = FindFirstObjectByType<PlayerArrow>();*/
 
             ConverToPreviewGrid();
         }
@@ -56,16 +57,17 @@ namespace _Project.GridWindow
             if (GUILayout.Button("Create Grid Map"))
             {
                 CreateGrid();
-                CreatePlayer();
-                CreateArrow();
+                /*CreatePlayer();
+                CreateArrow();*/
             }
 
             if (GUILayout.Button("Destroy Grid Map"))
             {
                 DestroyGrid();
-                DestroyPlayer();
-                DestroyArrow();
+                /*DestroyPlayer();
+                DestroyArrow();*/
             }
+
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginHorizontal();
@@ -95,8 +97,8 @@ namespace _Project.GridWindow
             EditorGUILayout.Space(5);
             LevelEditorExtension.SerializedCustomPropetry(this, "_platforms");
             LevelEditorExtension.SerializedCustomPropetry(this, "_gridMap");
-            LevelEditorExtension.SerializedCustomPropetry(this, "_player");
-            LevelEditorExtension.SerializedCustomPropetry(this, "_arrow");
+            /*LevelEditorExtension.SerializedCustomPropetry(this, "_player");
+            LevelEditorExtension.SerializedCustomPropetry(this, "_arrow");*/
             _platforms.Enable();
             _offsetPlatform = EditorGUILayout.FloatField(new GUIContent("Offset Platform", "Distance between platforms"), _offsetPlatform);
         }
@@ -115,7 +117,7 @@ namespace _Project.GridWindow
                 }
         */
 
-        private void CreatePlayer()
+        /*private void CreatePlayer()
         {
             if (_gridMap == null) return;
 
@@ -181,7 +183,7 @@ namespace _Project.GridWindow
             if (_arrow == null) return;
 
             DestroyImmediate(_arrow.gameObject);
-        }
+        }*/
 
         private PlatformType[,] ConvertGrid()
         {

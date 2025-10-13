@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityObjectResolver;
 
@@ -8,35 +7,49 @@ namespace _Project
     {
         [SerializeField] private PlayerSo _playerSo;
         [SerializeField] private GridMap _gridMap;
-        [SerializeField] private Player _player;
-        [SerializeField] private PlayerArrow _playerArrow;
         [SerializeField] private UserInputController _userInputController;
+
+        private IUserInput _userInput;
+        private PlayerArrow _playerArrow;
+        private Player _player;
 
         private void OnValidate()
         {
             _gridMap ??= FindFirstObjectByType<GridMap>();
-            _player ??= FindFirstObjectByType<Player>();
-            _playerArrow ??= FindFirstObjectByType<PlayerArrow>();
             _userInputController ??= FindFirstObjectByType<UserInputController>();
         }
 
         private void Awake()
         {
+            Create();
             Regist();
+        }
+
+        private void Start()
+        {
             _userInputController.Active();
+        }
+
+        private void Create()
+        {
+            _userInput = _userInputController.CreateUserInput();
+            _player = Instantiate(_playerSo.playerPrefab);
+            _playerArrow = Instantiate(_playerSo.arrowPrefab);
         }
 
         private void Regist()
         {
             ObjectResolver.Scene
+                .Register<IGridMap>(_gridMap)
+
+                .Register(_userInputController)
+                .Register<IUserInput>(_userInput)
+
                 .Register(_playerSo.playerInfo)
                 .Register(_playerSo.arrowInfo)
-                .Register<IGridMap>(_gridMap)
                 .Register(_player)
                 .Register(_player.GetComponent<PlayerMover>())
-                .Register(_playerArrow)
-                .Register(_userInputController)
-                .Register<IUserInput>(_userInputController.CreateUserInput());
+                .Register(_playerArrow);
         }
     }
 }
