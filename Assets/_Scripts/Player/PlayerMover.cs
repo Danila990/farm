@@ -23,13 +23,13 @@ namespace _Project
         private void Start()
         {
             ObjectResolver.Scene
-                .Resolve(out PlayerInfo info)
+                .Resolve(out PlayerStats stats)
                 .Resolve(out _map);
 
             StarPosition();
             _animator = GetComponent<PlayerAnimator>();
-            _move = new PlayerMoveComponent(transform, info.jumpDuration, info.jumpHeigh, _animator);
-            _rotate = new RotateComponent(info.rotateDuration, _rotateModel, _currentDirection);
+            _move = new PlayerMoveComponent(transform, stats.jumpDuration, stats.jumpHeigh, _animator);
+            _rotate = new RotateComponent(stats.rotateDuration, _rotateModel, _currentDirection);
         }
 
         public void SetInputDirection(DirectionType directionType)

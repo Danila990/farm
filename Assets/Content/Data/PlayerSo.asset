@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67209219d30f0ac4ebfc911bf72a724e, type: 3}
   m_Name: PlayerSo
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSo
-  <playerInfo>k__BackingField:
-    <rotateDuration>k__BackingField: 0.15
-    <jumpDuration>k__BackingField: 0.5
-    <jumpHeigh>k__BackingField: 2
-  <arrowInfo>k__BackingField:
-    <modelOffsetY>k__BackingField: 4
-    <rotateDuration>k__BackingField: 0.2
-  <playerPrefab>k__BackingField: {fileID: 5838990521985722728, guid: e227ec67b62e09945bbe4f54e386a638, type: 3}
-  <arrowPrefab>k__BackingField: {fileID: 9015981363595497881, guid: 527e8b0d83886a7478892f84c539e7db, type: 3}
+  <playerData>k__BackingField:
+    <prefab>k__BackingField: {fileID: 5838990521985722728, guid: e227ec67b62e09945bbe4f54e386a638, type: 3}
+    <stats>k__BackingField:
+      <rotateDuration>k__BackingField: 0.15
+      <jumpDuration>k__BackingField: 0.4
+      <jumpHeigh>k__BackingField: 1.5
+  <arrowData>k__BackingField:
+    <prefab>k__BackingField: {fileID: 9015981363595497881, guid: 527e8b0d83886a7478892f84c539e7db, type: 3}
+    <stats>k__BackingField:
+      <modelOffsetY>k__BackingField: 5
+      <rotateDuration>k__BackingField: 0.1

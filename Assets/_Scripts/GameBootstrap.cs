@@ -33,8 +33,8 @@ namespace _Project
         private void Create()
         {
             _userInput = _userInputController.CreateUserInput();
-            _player = Instantiate(_playerSo.playerPrefab);
-            _playerArrow = Instantiate(_playerSo.arrowPrefab);
+            _player = Instantiate(_playerSo.playerData.prefab);
+            _playerArrow = Instantiate(_playerSo.arrowData.prefab);
         }
 
         private void Regist()
@@ -45,8 +45,8 @@ namespace _Project
                 .Register(_userInputController)
                 .Register<IUserInput>(_userInput)
 
-                .Register(_playerSo.playerInfo)
-                .Register(_playerSo.arrowInfo)
+                .Register(_playerSo.playerData.stats)
+                .Register(_playerSo.arrowData.stats)
                 .Register(_player)
                 .Register(_player.GetComponent<PlayerMover>())
                 .Register(_playerArrow);

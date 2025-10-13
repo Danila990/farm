@@ -15,12 +15,12 @@ namespace _Project
         private void Start()
         {
             ObjectResolver.Scene
-                .Resolve(out ArrowInfo info)
+                .Resolve(out ArrowStats stats)
                 .Resolve(out Player player);
 
             _arrowTransform = GetComponent<Transform>();
-            _rotate = new RotateComponent(info.rotateDuration, transform, DirectionType.Up);
-            _offsetY = info.modelOffsetY;
+            _rotate = new RotateComponent(stats.rotateDuration, transform, DirectionType.Up);
+            _offsetY = stats.modelOffsetY;
             _playerTarget = player.GetComponent<Transform>();
         }
 
