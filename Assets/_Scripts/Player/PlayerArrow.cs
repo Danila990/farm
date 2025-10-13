@@ -5,49 +5,41 @@ namespace _Project
 {
     public class PlayerArrow : MonoBehaviour
     {
-        [SerializeField] private Transform _arrow;
-
-        private IUserInput _userInput;
         private RotateComponent _rotate;
         private float _offsetY;
         private Transform _playerTarget;
+        private Transform _arrowTransform;
 
         public bool IsRotated { get; private set; } = false;
 
         private void Start()
         {
             ObjectResolver.Scene
-                .Resolve(out _userInput)
-                .Resolve(out ArrowInfo arrowInfo)
+                .Resolve(out ArrowInfo info)
                 .Resolve(out Player player);
 
-            _rotate = new RotateComponent(arrowInfo.rotateDuration, transform);
-            _offsetY = arrowInfo.modelOffsetY;
-            _playerTarget = player.transform;
-            _userInput.OnDirectionInput += RotateToDirection;
-        }
-
-        private void OnDestroy()
-        {
-            _userInput.OnDirectionInput -= RotateToDirection;
+            _arrowTransform = GetComponent<Transform>();
+            _rotate = new RotateComponent(info.rotateDuration, transform, DirectionType.Up);
+            _offsetY = info.modelOffsetY;
+            _playerTarget = player.GetComponent<Transform>();
         }
 
         private void Update()
         {
-            ArrowMover();
+            ArrowMoved();
         }
 
-        public void RotateToDirection(DirectionType direction)
+        public void SetInputDirection(DirectionType direction)
         {
             if (!IsRotated)
                 StartCoroutine(_rotate.Rotate(direction));
         }
 
-        private void ArrowMover()
+        private void ArrowMoved()
         {
             Vector3 position = _playerTarget.position;
             position.y = _offsetY;
-            transform.position = position;
+            _arrowTransform.position = position;
         }
     }
 }

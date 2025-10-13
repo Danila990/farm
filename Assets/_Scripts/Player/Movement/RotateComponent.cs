@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace _Project
@@ -10,20 +8,21 @@ namespace _Project
         private readonly float _rotateDuration = 0.2f;
         private readonly Transform _rotate;
 
-        public DirectionType CurrentDirection { get; private set; } = DirectionType.Up;
+        public DirectionType currentDirection { get; private set; }
         public bool IsRotated { get; private set; } = false;
 
-        public RotateComponent(float rotateDuration, Transform rotate)
+        public RotateComponent(float rotateDuration, Transform rotate, DirectionType startDirection = DirectionType.Up)
         {
             _rotateDuration = rotateDuration;
             _rotate = rotate;
+            currentDirection = startDirection;
         }
 
         public virtual IEnumerator Rotate(DirectionType direction)
         {
-            if (IsRotated || direction == DirectionType.None || CurrentDirection == direction) yield break;
+            if (IsRotated || direction == DirectionType.None || currentDirection == direction) yield break;
 
-            CurrentDirection = direction;
+            currentDirection = direction;
             IsRotated = true;
 
             Quaternion startRotation = _rotate.rotation;

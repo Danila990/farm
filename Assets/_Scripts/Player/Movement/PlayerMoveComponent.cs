@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace _Project
 {
-    public class PlayerMove : MoveComponent
+    public class PlayerMoveComponent : MoveComponent
     {
         private readonly PlayerAnimator _playerAnimator;
 
-        public PlayerMove(Transform target, float jumpDuration, float jumpHeight, PlayerAnimator playerAnimator)
+        public PlayerMoveComponent(Transform target, float jumpDuration, float jumpHeight, PlayerAnimator playerAnimator)
             : base(target, jumpDuration, jumpHeight)
         {
             _playerAnimator = playerAnimator;

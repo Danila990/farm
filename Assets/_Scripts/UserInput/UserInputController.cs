@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Project
@@ -43,6 +44,8 @@ namespace _Project
                 default:
                     break;
             }
+
+            _userInput.AddComponent<PlayerUserInputHandler>();
 
             return _userInput;
         }
