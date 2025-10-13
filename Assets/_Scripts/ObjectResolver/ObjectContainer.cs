@@ -56,7 +56,7 @@ namespace UnityObjectResolver
         public ObjectContainer Register(Type type, object service)
         {
             if (!type.IsInstanceOfType(service))
-                throw new ArgumentException("Type of service does not match type of service interface", nameof(service));
+                throw new ArgumentException("platformType of service does not match type of service interface", nameof(service));
 
             if (!_services.TryAdd(type, service))
                 Debug.LogError($"ServiceManager.Register: Service of type {type.FullName} already registered");

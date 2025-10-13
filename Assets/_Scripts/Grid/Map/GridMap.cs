@@ -17,7 +17,7 @@ namespace _Project
         {
             return _grid.GetAll()
                 .SelectMany(line => line.Values)
-                .Where(p => p != null && p.Type == platformType)
+                .Where(p => p != null && p.platformType == platformType)
                 .FirstOrDefault();
         }
 
@@ -25,7 +25,7 @@ namespace _Project
         {
             return _grid.GetAll()
                 .SelectMany(line => line.Values)
-                .Where(platform => platform.Type == platformType)
+                .Where(platform => platform.platformType == platformType)
                 .ToArray();
         }
 

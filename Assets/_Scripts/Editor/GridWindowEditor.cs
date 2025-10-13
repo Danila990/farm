@@ -272,7 +272,7 @@ namespace _Project.GridWindow
                 _linesX[x].lineY = new PlatformType[platforms[x].Values.Length];
                 for (int y = 0; y < _linesX[x].lineY.Length; y++)
                 {
-                    _linesX[x].lineY[y] = platforms[x].Values[y].Type;
+                    _linesX[x].lineY[y] = platforms[x].Values[y].platformType;
                 }
             }
         }

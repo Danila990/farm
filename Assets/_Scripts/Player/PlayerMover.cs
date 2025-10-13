@@ -26,7 +26,7 @@ namespace _Project
                 .Resolve(out PlayerStats stats)
                 .Resolve(out _map);
 
-            StarPosition();
+            SetStartPosition();
             _animator = GetComponent<PlayerAnimator>();
             _move = new PlayerMoveComponent(transform, stats.jumpDuration, stats.jumpHeigh, _animator);
             _rotate = new RotateComponent(stats.rotateDuration, _rotateModel, _currentDirection);
@@ -49,7 +49,7 @@ namespace _Project
             if (_map.CheckPlatform(nextIndex))
             {
                 Platform platform = _map.GetPlatform(nextIndex);
-                if (platform.CanMove)
+                if (platform.canMove)
                 {
                     yield return _move.Move(platform.transform.position);
                     playerIndex = nextIndex;
@@ -59,10 +59,10 @@ namespace _Project
             yield return Moved(_currentDirection);
         }
 
-        private void StarPosition()
+        private void SetStartPosition()
         {
             Platform playerPlatform = _map.FindPlatform(PlatformType.StartPlayer);
-            playerIndex = playerPlatform.Index;
+            playerIndex = playerPlatform.platformIndex;
             transform.position = playerPlatform.transform.position;
         }
     }

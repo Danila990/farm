@@ -27,7 +27,7 @@ namespace _Project
         public T Get(int x, int y)
         {
             if (!Check(x, y))
-                throw new ArgumentException($"Index error: X-{x}, Y-{y}");
+                throw new ArgumentException($"platformIndex error: X-{x}, Y-{y}");
 
             return _values[x].Values[y];
         }
