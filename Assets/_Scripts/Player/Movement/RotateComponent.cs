@@ -1,14 +1,14 @@
 using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace _Project
 {
-    [Serializable]
     public class RotateComponent
     {
-        private float _rotateDuration = 0.2f;
-        private Transform _rotate;
+        private readonly float _rotateDuration = 0.2f;
+        private readonly Transform _rotate;
 
         public DirectionType CurrentDirection { get; private set; } = DirectionType.Up;
         public bool IsRotated { get; private set; } = false;
@@ -19,7 +19,7 @@ namespace _Project
             _rotate = rotate;
         }
 
-        public IEnumerator Rotate(DirectionType direction)
+        public virtual IEnumerator Rotate(DirectionType direction)
         {
             if (IsRotated || direction == DirectionType.None || CurrentDirection == direction) yield break;
 

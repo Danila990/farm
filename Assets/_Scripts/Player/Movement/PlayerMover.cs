@@ -9,22 +9,18 @@ namespace _Project
     {
         [SerializeField] private Transform _rotateModel;
 
-        private float _jumpHeight = 1;
-        private float _jumpDuration = 0.5f;
         private RotateComponent _rotateComponent;
-
+        private PlayerMove _playerMove;
         private PlayerAnimator _playerAnimator;
 
-        public bool IsMoved { get; private set; } = false;
-        public bool IsActived => IsMoved || _rotateComponent.IsRotated;
+        public bool IsActived => _playerMove.IsMoved || _rotateComponent.IsRotated;
 
         private void Start()
         {
             ObjectResolver.Scene.Resolve(out PlayerInfo playerInfo);
 
             _playerAnimator = GetComponent<PlayerAnimator>();
-            _jumpHeight = playerInfo.jumpHeigh;
-            _jumpDuration = playerInfo.jumpDuration;
+            _playerMove = new PlayerMove(transform, playerInfo.jumpDuration, playerInfo.jumpHeigh, _playerAnimator);
             _rotateComponent = new RotateComponent(playerInfo.rotateDuration, _rotateModel);
         }
 
@@ -35,27 +31,7 @@ namespace _Project
 
         public IEnumerator Move(Vector3 targetPosition)
         {
-            if (IsMoved) yield break;
-
-            IsMoved = true;
-            _playerAnimator.MoveState(true);
-            Vector3 start = transform.position;
-            float time = 0f;
-            while (time < _jumpDuration)
-            {
-                time += Time.deltaTime;
-                float t = time / _jumpDuration;
-
-                Vector3 horizontalPos = Vector3.Lerp(start, targetPosition, t);
-                float height = _jumpHeight * 4 * t * (1 - t);
-                transform.position = new Vector3(horizontalPos.x, start.y + height, horizontalPos.z);
-
-                yield return null;
-            }
-
-            _playerAnimator.MoveState(false);
-            transform.position = targetPosition;
-            IsMoved = false;
+            yield return _playerMove.Move(targetPosition);
         }
     }
 }
