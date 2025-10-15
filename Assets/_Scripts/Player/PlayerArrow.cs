@@ -8,38 +8,39 @@ namespace _Project
         private RotateComponent _rotate;
         private float _offsetY;
         private Transform _playerTarget;
-        private Transform _arrowTransform;
-
-        public bool IsRotated { get; private set; } = false;
 
         private void Start()
         {
-            IServiceLocator.Locator
-                .Get(out ArrowStats stats)
-                .Get(out Player player);
+            Configure();
+        }
 
-            _arrowTransform = GetComponent<Transform>();
+        private void Configure()
+        {
+            ServiceLocator.Locator
+                            .Get(out ArrowStats stats)
+                            .Get(out Player player);
+
             _rotate = new RotateComponent(stats.rotateDuration, transform, DirectionType.Up);
             _offsetY = stats.modelOffsetY;
-            _playerTarget = player.GetComponent<Transform>();
+            _playerTarget = player.transform;
         }
 
         private void Update()
         {
-            ArrowMoved();
+            MovedToPlayer();
         }
 
         public void SetInputDirection(DirectionType direction)
         {
-            if (!IsRotated)
+            if (!_rotate.IsRotated)
                 StartCoroutine(_rotate.Rotate(direction));
         }
 
-        private void ArrowMoved()
+        private void MovedToPlayer()
         {
             Vector3 position = _playerTarget.position;
             position.y = _offsetY;
-            _arrowTransform.position = position;
+            transform.position = position;
         }
     }
 }

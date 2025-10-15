@@ -4,18 +4,24 @@ using UnityEngine;
 
 namespace UnityServiceLocator
 {
-    public class ServiceLocator : MonoBehaviour, IServiceLocator
+    public class ServiceLocator : MonoBehaviour
     {
         private const string SERVICE_LOCATION_NAME = "ServiceLocator";
 
         private static ServiceLocator _serviceLocator;
 
-        public static IServiceLocator Locator
+        public static ServiceLocator Locator
         {
             get
             {
                 if (_serviceLocator != null)
                     return _serviceLocator;
+
+                if(FindFirstObjectByType<ServiceLocator>() is { } found)
+                {
+                    found.Configure();
+                    return _serviceLocator;
+                }
 
                 var gameobjectLocator = new GameObject(SERVICE_LOCATION_NAME, typeof(ServiceLocator));
                 gameobjectLocator.GetComponent<ServiceLocator>().Configure();
@@ -35,13 +41,13 @@ namespace UnityServiceLocator
                 _serviceLocator = this;
         }
 
-        public IServiceLocator Register<T>(T service) where T : class
+        public ServiceLocator Register<T>(T service) where T : class
         {
             _container.Register(service);
             return this;
         }
 
-        public IServiceLocator Get<T>(out T service) where T : class
+        public ServiceLocator Get<T>(out T service) where T : class
         {
             if (_container.TryGet(out service))
                 return this;
@@ -68,13 +74,5 @@ namespace UnityServiceLocator
             var go = new GameObject(SERVICE_LOCATION_NAME, typeof(ServiceLocator));
         }
 #endif
-    }
-
-    public interface IServiceLocator
-    {
-        public static IServiceLocator Locator { get; }
-
-        public IServiceLocator Register<T>(T service) where T : class;
-        public IServiceLocator Get<T>(out T service) where T : class;
     }
 }

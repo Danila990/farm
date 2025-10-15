@@ -14,7 +14,7 @@ namespace _Project
 
         private void Update()
         {
-            if(!_isActive) return;
+            if(!_isActive || _userInput == null) return;
 
             _userInput.Tick();
         }

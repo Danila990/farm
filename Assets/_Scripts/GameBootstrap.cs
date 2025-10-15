@@ -9,9 +9,6 @@ namespace _Project
         [SerializeField] private GridMap _gridMap;
         [SerializeField] private UserInputController _userInputController;
 
-        private IUserInput _userInput;
-        private PlayerArrow _playerArrow;
-        private Player _player;
 
         private void OnValidate()
         {
@@ -21,35 +18,34 @@ namespace _Project
 
         private void Awake()
         {
-            Create();
-            Regist();
+            MainServiceRegister();
+            CreatePlayer();
         }
 
-        private void Start()
+        private void MainServiceRegister()
         {
-            _userInputController.Active();
-        }
-
-        private void Create()
-        {
-            _userInput = _userInputController.CreateUserInput();
-            _player = Instantiate(_playerSo.playerData.prefab);
-            _playerArrow = Instantiate(_playerSo.arrowData.prefab);
-        }
-
-        private void Regist()
-        {
-            IServiceLocator.Locator
+            ServiceLocator.Locator
+                //GridMap
                 .Register<IGridMap>(_gridMap)
 
+                //User input
                 .Register(_userInputController)
-                .Register<IUserInput>(_userInput)
+                .Register<IUserInput>(_userInputController.CreateUserInput())
 
+                //Player stats
                 .Register(_playerSo.playerData.stats)
-                .Register(_playerSo.arrowData.stats)
-                .Register(_player)
-                .Register(_player.GetComponent<PlayerMover>())
-                .Register(_playerArrow);
+                .Register(_playerSo.arrowData.stats);
+        }
+
+        private void CreatePlayer()
+        {
+            Player player = Instantiate(_playerSo.playerData.prefab);
+            PlayerArrow playerArrow = Instantiate(_playerSo.arrowData.prefab);
+
+            ServiceLocator.Locator
+                .Register(player)
+                .Register(player.GetComponent<PlayerMover>())
+                .Register(playerArrow);
         }
     }
 }

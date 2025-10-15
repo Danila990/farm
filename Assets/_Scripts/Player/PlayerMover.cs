@@ -20,16 +20,19 @@ namespace _Project
 
         public bool IsActived => _move.IsMoved || _rotate.IsRotated;
 
-        private void Start()
+        public void SetupMover(PlayerStats stats, IGridMap gridMap)
         {
-            IServiceLocator.Locator
-                .Get(out PlayerStats stats)
-                .Get(out _map);
-
-            SetStartPosition();
+            _map = gridMap;
             _animator = GetComponent<PlayerAnimator>();
             _move = new PlayerMoveComponent(transform, stats.jumpDuration, stats.jumpHeigh, _animator);
             _rotate = new RotateComponent(stats.rotateDuration, _rotateModel, _currentDirection);
+        }
+
+        public void SetStartPosition()
+        {
+            Platform playerPlatform = _map.FindPlatform(PlatformType.StartPlayer);
+            playerIndex = playerPlatform.platformIndex;
+            transform.position = playerPlatform.transform.position;
         }
 
         public void SetInputDirection(DirectionType directionType)
@@ -57,13 +60,6 @@ namespace _Project
             }
 
             yield return Moved(_currentDirection);
-        }
-
-        private void SetStartPosition()
-        {
-            Platform playerPlatform = _map.FindPlatform(PlatformType.StartPlayer);
-            playerIndex = playerPlatform.platformIndex;
-            transform.position = playerPlatform.transform.position;
         }
     }
 }
