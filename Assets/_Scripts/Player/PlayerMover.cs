@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using UnityObjectResolver;
+using UnityServiceLocator;
 
 namespace _Project
 {
@@ -22,9 +22,9 @@ namespace _Project
 
         private void Start()
         {
-            ObjectResolver.Scene
-                .Resolve(out PlayerStats stats)
-                .Resolve(out _map);
+            IServiceLocator.Locator
+                .Get(out PlayerStats stats)
+                .Get(out _map);
 
             SetStartPosition();
             _animator = GetComponent<PlayerAnimator>();

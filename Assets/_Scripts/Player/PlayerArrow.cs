@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityObjectResolver;
+using UnityServiceLocator;
 
 namespace _Project
 {
@@ -14,9 +14,9 @@ namespace _Project
 
         private void Start()
         {
-            ObjectResolver.Scene
-                .Resolve(out ArrowStats stats)
-                .Resolve(out Player player);
+            IServiceLocator.Locator
+                .Get(out ArrowStats stats)
+                .Get(out Player player);
 
             _arrowTransform = GetComponent<Transform>();
             _rotate = new RotateComponent(stats.rotateDuration, transform, DirectionType.Up);

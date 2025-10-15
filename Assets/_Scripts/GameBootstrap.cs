@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityObjectResolver;
+using UnityServiceLocator;
 
 namespace _Project
 {
@@ -39,7 +39,7 @@ namespace _Project
 
         private void Regist()
         {
-            ObjectResolver.Scene
+            IServiceLocator.Locator
                 .Register<IGridMap>(_gridMap)
 
                 .Register(_userInputController)

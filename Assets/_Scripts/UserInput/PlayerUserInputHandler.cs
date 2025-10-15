@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityObjectResolver;
+using UnityServiceLocator;
 
 namespace _Project
 {
@@ -11,10 +11,10 @@ namespace _Project
 
         private void Start()
         {
-            ObjectResolver.Scene
-                .Resolve(out _userInput)
-                .Resolve(out _playerMover)
-                .Resolve(out _playerArrow);
+            ServiceLocator.Locator
+                .Get(out _userInput)
+                .Get(out _playerMover)
+                .Get(out _playerArrow);
 
             _userInput.OnDirectionInput += OnUserInput;
         }
