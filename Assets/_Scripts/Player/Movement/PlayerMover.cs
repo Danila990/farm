@@ -6,7 +6,6 @@ namespace _Project
     [RequireComponent(typeof(PlayerAnimator))]
     public class PlayerMover : MonoBehaviour
     {
-        [SerializeField] private MoverStats _stats;
         [SerializeField] private Transform _rotateModel;
 
         private RotateComponent _rotate;
@@ -20,12 +19,12 @@ namespace _Project
 
         public bool IsActived => _move.IsMoved || _rotate.IsRotated;
 
-        public void SetupMover(IGridMap gridMap)
+        public void SetupMover(IGridMap gridMap, MoverStats stats)
         {
             _map = gridMap;
             _animator = GetComponent<PlayerAnimator>();
-            _move = new PlayerMoveComponent(transform, _stats.jumpDuration, _stats.jumpHeigh, _animator);
-            _rotate = new RotateComponent(_stats.rotateDuration, _rotateModel, _currentDirection);
+            _move = new PlayerMoveComponent(transform, stats.jumpDuration, stats.jumpHeigh, _animator);
+            _rotate = new RotateComponent(stats.rotateDuration, _rotateModel, _currentDirection);
         }
 
         public void SetStartPosition()

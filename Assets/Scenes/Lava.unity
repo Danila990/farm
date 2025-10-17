@@ -458,8 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ed83813e86ded42b61c24c00c7f1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerController
-  _playerModel: {fileID: 1473836705601619176, guid: e227ec67b62e09945bbe4f54e386a638, type: 3}
-  _arrow: {fileID: 7669562359582312340, guid: 527e8b0d83886a7478892f84c539e7db, type: 3}
+  _settings: {fileID: 11400000, guid: 2f2055d0d42da1149b42c3e45ca517b6, type: 2}
 --- !u!114 &135869618
 MonoBehaviour:
   m_ObjectHideFlags: 0

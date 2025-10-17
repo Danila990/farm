@@ -4,17 +4,15 @@ namespace _Project
 {
     public class PlayerFollowArrow : MonoBehaviour
     {
-        [SerializeField] private ArrowStats _stats;
-
         private RotateComponent _rotate;
         private float _offsetY;
         private Transform _target;
 
-        public void SetupArrow(Transform target)
+        public void SetupArrow(Transform target, ArrowStats stats)
         {
             _target = target;
-            _rotate = new RotateComponent(_stats.rotateDuration, transform);
-            _offsetY = _stats.modelOffsetY;
+            _rotate = new RotateComponent(stats.rotateDuration, transform);
+            _offsetY = stats.modelOffsetY;
         }
 
         private void Update()
