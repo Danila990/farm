@@ -13,5 +13,10 @@ namespace _Project
         {
 
         }
+
+        public void StopAnimation()
+        {
+
+        }
     }
 }

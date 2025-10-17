@@ -7,15 +7,24 @@ namespace _Project
     {
         private readonly float _rotateDuration = 0.2f;
         private readonly Transform _rotate;
+        private readonly DirectionType _startDirection;
 
         public DirectionType currentDirection { get; private set; }
         public bool IsRotated { get; private set; } = false;
 
-        public RotateComponent(float rotateDuration, Transform rotate, DirectionType startDirection = DirectionType.Up)
+        public RotateComponent(float rotateDuration, Transform rotate, DirectionType startDirection = DirectionType.None)
         {
             _rotateDuration = rotateDuration;
             _rotate = rotate;
-            currentDirection = startDirection;
+            _startDirection = startDirection;
+            currentDirection = _startDirection;
+        }
+
+        public void ResetRotate()
+        {
+            currentDirection = _startDirection;
+            Quaternion targetRotation = currentDirection.ToQuaternionY();
+            _rotate.rotation = targetRotation;
         }
 
         public virtual IEnumerator Rotate(DirectionType direction)

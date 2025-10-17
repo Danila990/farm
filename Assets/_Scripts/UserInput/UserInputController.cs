@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityServiceLocator;
 
 namespace _Project
 {
@@ -29,7 +30,17 @@ namespace _Project
             _isActive = false;
         }
 
-        public IUserInput CreateUserInput()
+        public void Configure()
+        {
+            CreateUserInput();
+            _userInput.AddComponent<PlayerUserInputHandler>();
+
+            ServiceLocator.Locator
+                .Register(this)
+                .Register(UserInput);
+        }
+
+        private void CreateUserInput()
         {
             switch (_userType)
             {
@@ -44,10 +55,6 @@ namespace _Project
                 default:
                     break;
             }
-
-            _userInput.AddComponent<PlayerUserInputHandler>();
-
-            return _userInput;
         }
     }
 }

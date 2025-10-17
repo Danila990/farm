@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityServiceLocator;
 
 namespace _Project
 {
@@ -10,6 +11,11 @@ namespace _Project
         [field: SerializeField, HideInInspector] public Vector2Int platformIndex { get; private set; }
 
         public void SetIndex(Vector2Int index) => platformIndex = index;
+
+        public void Event()
+        {
+            ServiceLocator.Locator.Get<GridEvents>().Event(platformType);
+        }
 
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -254,6 +255,7 @@ namespace _Project.GridWindow
             }
 
             _gridMap.SetupMap(grid);
+            _gridMap.AddComponent<GridEvents>();
             Undo.RegisterCreatedObjectUndo(_gridMap.gameObject, "Create Grid map");
             EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
         }

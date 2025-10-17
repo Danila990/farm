@@ -6,7 +6,7 @@ namespace _Project
     public class PlayerUserInputHandler : MonoBehaviour
     {
         private PlayerMover _playerMover;
-        private PlayerArrow _playerArrow;
+        private PlayerFollowArrow _playerArrow;
         private IUserInput _userInput;
 
         private void Start()

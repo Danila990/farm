@@ -5,47 +5,25 @@ namespace _Project
 {
     public class GameBootstrap : MonoBehaviour
     {
-        [SerializeField] private PlayerSo _playerSo;
-        [SerializeField] private GridMap _gridMap;
+        [SerializeField] private GridControoler _gridControoler;
         [SerializeField] private UserInputController _userInputController;
-
+        [SerializeField] private PlayerController _playerController;
+        [SerializeField] private GameManager _gameManager;
 
         private void OnValidate()
         {
-            _gridMap ??= FindFirstObjectByType<GridMap>();
+            _gridControoler ??= FindFirstObjectByType<GridControoler>();
             _userInputController ??= FindFirstObjectByType<UserInputController>();
+            _playerController ??= FindFirstObjectByType<PlayerController>();
+            _gameManager ??= FindFirstObjectByType<GameManager>();
         }
 
         private void Awake()
         {
-            MainServiceRegister();
-            CreatePlayer();
-        }
-
-        private void MainServiceRegister()
-        {
-            ServiceLocator.Locator
-                //GridMap
-                .Register<IGridMap>(_gridMap)
-
-                //User input
-                .Register(_userInputController)
-                .Register<IUserInput>(_userInputController.CreateUserInput())
-
-                //Player stats
-                .Register(_playerSo.playerData.stats)
-                .Register(_playerSo.arrowData.stats);
-        }
-
-        private void CreatePlayer()
-        {
-            Player player = Instantiate(_playerSo.playerData.prefab);
-            PlayerArrow playerArrow = Instantiate(_playerSo.arrowData.prefab);
-
-            ServiceLocator.Locator
-                .Register(player)
-                .Register(player.GetComponent<PlayerMover>())
-                .Register(playerArrow);
+            _gridControoler.Configure();
+            _userInputController.Configure();
+            _playerController.Configure();
+            _gameManager.Configure();
         }
     }
 }

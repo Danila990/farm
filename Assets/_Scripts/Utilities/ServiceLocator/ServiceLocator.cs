@@ -55,6 +55,11 @@ namespace UnityServiceLocator
             throw new ArgumentException($"ServiceLocator.Get: Service of type {typeof(T).FullName} not registered");
         }
 
+        public T Get<T>() where T : class
+        {
+            return _container.Get<T>();
+        }
+
         private void OnDestroy()
         {
             if (this == _serviceLocator)

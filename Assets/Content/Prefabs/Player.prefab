@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4463848728143235742}
-  - component: {fileID: 5838990521985722728}
+  - component: {fileID: 1473836705601619176}
   - component: {fileID: 5671283813870681157}
   - component: {fileID: 7373306196748266352}
   m_Layer: 0
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 6229112810299565135}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5838990521985722728
+--- !u!114 &1473836705601619176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1321867399923938073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 991250f0006efb64c9bbd98d5ac21af0, type: 3}
+  m_Script: {fileID: 11500000, guid: c543ddb2f6bcb9c4482d4a1f138045ff, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Player
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerModel
 --- !u!114 &5671283813870681157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee2df30870863d40a445b7209d22210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerMover
+  _stats: {fileID: 11400000, guid: 616639c4f57fdb04484ad208fbfd292e, type: 2}
   _rotateModel: {fileID: 6229112810299565135}
 --- !u!1 &1348711727133602642
 GameObject:
