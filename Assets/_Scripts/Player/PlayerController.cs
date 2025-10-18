@@ -10,6 +10,7 @@ namespace _Project
         private PlayerModel _playerModel;
         private PlayerFollowArrow _arrow;
         private PlayerMover _mover;
+        private PlayerColor _playerColor;
 
         public void Configure()
         {
@@ -27,6 +28,7 @@ namespace _Project
         {
             _mover.SetStartPosition();
             _arrow.ResetArrow();
+            _playerColor.ResetColor();
         }
 
         private void Register()
@@ -35,7 +37,8 @@ namespace _Project
                             .Register(this)
                             .Register(_playerModel)
                             .Register(_mover)
-                            .Register(_arrow);
+                            .Register(_arrow)
+                            .Register(_playerColor);
         }
 
         private void SetupPlayer()
@@ -45,6 +48,7 @@ namespace _Project
 
             _mover.SetupMover(gridMap, _settings.playerInfo.stats);
             _arrow.SetupArrow(playerTranform, _settings.arrowInfo.stats);
+            _playerColor.SetupStartColor(_settings.playerInfo.startColor);
         }
 
         private void CreatePlayer()
@@ -52,6 +56,7 @@ namespace _Project
             _playerModel = Instantiate(_settings.playerInfo.prefab);
             _arrow = Instantiate(_settings.arrowInfo.prefab);
             _mover = _playerModel.GetComponent<PlayerMover>();
+            _playerColor = _playerModel.GetComponent<PlayerColor>();
         }
     }
 }

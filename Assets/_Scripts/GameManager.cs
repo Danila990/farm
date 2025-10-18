@@ -8,6 +8,7 @@ namespace _Project
         private UserInputController _userInputController;
         private GridControoler _gridController;
         private PlayerController _playerController;
+        private GameUIController _uiController;
 
         private void Start()
         {
@@ -20,7 +21,8 @@ namespace _Project
                 .Register(this)
                 .Get(out _userInputController)
                 .Get(out _playerController)
-                .Get(out _gridController);
+                .Get(out _gridController)
+                .Get(out _uiController);
 
         }
 

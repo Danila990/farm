@@ -18,6 +18,7 @@ MonoBehaviour:
       <rotateDuration>k__BackingField: 0.15
       <jumpDuration>k__BackingField: 0.5
       <jumpHeigh>k__BackingField: 1.5
+    <startColor>k__BackingField: 0
   <arrowInfo>k__BackingField:
     <prefab>k__BackingField: {fileID: 7669562359582312340, guid: 527e8b0d83886a7478892f84c539e7db, type: 3}
     <stats>k__BackingField:

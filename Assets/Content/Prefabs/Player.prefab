@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1473836705601619176}
   - component: {fileID: 5671283813870681157}
   - component: {fileID: 7373306196748266352}
+  - component: {fileID: 7355627802824860899}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -73,6 +74,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerMover
   _rotateModel: {fileID: 6147274477617454436}
+--- !u!114 &7355627802824860899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321867399923938073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927eaf11ab12bd54882c8c4b77b66133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerColor
+  _meshrenderer: {fileID: 1310498480111170501}
 --- !u!1 &5832261756783653473
 GameObject:
   m_ObjectHideFlags: 0
@@ -5004,7 +5018,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 9f3617da2c469c445b2f185a260cf9f9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 74117f645ca87544896e430b75e9a316, type: 2}
+      objectReference: {fileID: 2100000, guid: 87ffa5180096d454b90f6756ffb63a37, type: 2}
     - target: {fileID: 919132149155446097, guid: 9f3617da2c469c445b2f185a260cf9f9, type: 3}
       propertyPath: m_Name
       value: stickman
@@ -5017,5 +5031,10 @@ PrefabInstance:
 --- !u!4 &172543817355413674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9f3617da2c469c445b2f185a260cf9f9, type: 3}
+  m_PrefabInstance: {fileID: 427356862859816769}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1310498480111170501 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 9f3617da2c469c445b2f185a260cf9f9, type: 3}
   m_PrefabInstance: {fileID: 427356862859816769}
   m_PrefabAsset: {fileID: 0}

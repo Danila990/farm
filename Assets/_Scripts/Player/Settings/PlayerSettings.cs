@@ -15,6 +15,7 @@ namespace _Project
     {
         [field: SerializeField] public PlayerModel prefab { get; private set; }
         [field: SerializeField] public MoverStats stats { get; private set; }
+        [field: SerializeField] public ColorType startColor { get; private set; }
     }
 
     [Serializable]
