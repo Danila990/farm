@@ -15,9 +15,9 @@ MonoBehaviour:
   <playerInfo>k__BackingField:
     <prefab>k__BackingField: {fileID: 1473836705601619176, guid: e227ec67b62e09945bbe4f54e386a638, type: 3}
     <stats>k__BackingField:
-      <rotateDuration>k__BackingField: 0.5
+      <rotateDuration>k__BackingField: 0.15
       <jumpDuration>k__BackingField: 0.5
-      <jumpHeigh>k__BackingField: 1
+      <jumpHeigh>k__BackingField: 1.5
   <arrowInfo>k__BackingField:
     <prefab>k__BackingField: {fileID: 7669562359582312340, guid: 527e8b0d83886a7478892f84c539e7db, type: 3}
     <stats>k__BackingField:

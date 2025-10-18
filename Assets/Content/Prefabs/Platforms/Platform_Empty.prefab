@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Platform
   <platformType>k__BackingField: 3
-  <platformIndex>k__BackingField: {x: 0, y: 0}
   <canMove>k__BackingField: 1
+  <platformIndex>k__BackingField: {x: 0, y: 0}
