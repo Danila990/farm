@@ -8,7 +8,7 @@ namespace _Project
         [SerializeField] private Canvas _mainCanvas;
         [SerializeField] private GameUISettings _settings;
 
-        private PlayerColorPanel _colorPanel;
+        private ColorPanel _colorPanel;
 
         private void OnValidate()
         {

@@ -4,16 +4,16 @@ using UnityServiceLocator;
 
 namespace _Project
 {
-    public class PanelColorButton : MonoBehaviour
+    public class ColorButton : MonoBehaviour
     {
         [SerializeField] private ColorType _playerCollor;
 
         private Button _button;
-        private PlayerColorPanel _colorPanel;
+        private ColorPanel _colorPanel;
 
         private void Start()
         {
-            _colorPanel = ServiceLocator.Locator.Get<PlayerColorPanel>();
+            _colorPanel = ServiceLocator.Locator.Get<ColorPanel>();
             _button = GetComponent<Button>();
             _button.onClick.AddListener(ButtonClick);
         }

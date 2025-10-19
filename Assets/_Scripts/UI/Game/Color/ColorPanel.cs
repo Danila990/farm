@@ -3,7 +3,7 @@ using UnityServiceLocator;
 
 namespace _Project
 {
-    public class PlayerColorPanel : MonoBehaviour
+    public class ColorPanel : MonoBehaviour
     {
         public void SetupPanel()
         {
