@@ -1,11 +1,11 @@
 using UnityEngine;
-using UnityServiceLocator;
 
 namespace _Project
 {
     public class GameBootstrap : MonoBehaviour
     {
-        [SerializeField] private GridControoler _gridControoler;
+        [SerializeField] private GameSettingController _gameSettingsController;
+        [SerializeField] private GridControoler _gridController;
         [SerializeField] private UserInputController _userInputController;
         [SerializeField] private PlayerController _playerController;
         [SerializeField] private GameUIController _uiController;
@@ -13,7 +13,8 @@ namespace _Project
 
         private void OnValidate()
         {
-            _gridControoler ??= FindFirstObjectByType<GridControoler>();
+            _gameSettingsController ??= FindAnyObjectByType<GameSettingController>();
+            _gridController ??= FindFirstObjectByType<GridControoler>();
             _userInputController ??= FindFirstObjectByType<UserInputController>();
             _playerController ??= FindFirstObjectByType<PlayerController>();
             _uiController ??= FindFirstObjectByType<GameUIController>();
@@ -22,7 +23,8 @@ namespace _Project
 
         private void Awake()
         {
-            _gridControoler.Configure();
+            _gameSettingsController.Configure();
+            _gridController.Configure();
             _userInputController.Configure();
             _playerController.Configure();
             _uiController.Configure();

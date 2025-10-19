@@ -5,8 +5,7 @@ namespace _Project
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private PlayerSettings _settings;
-
+        private PlayerSettings _settings;
         private PlayerModel _playerModel;
         private PlayerFollowArrow _arrow;
         private PlayerMover _mover;
@@ -14,6 +13,7 @@ namespace _Project
 
         public void Configure()
         {
+            _settings = ServiceLocator.Locator.Get<PlayerSettings>();
             CreatePlayer();
             SetupPlayer();
             Register();

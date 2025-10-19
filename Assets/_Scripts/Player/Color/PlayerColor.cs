@@ -16,7 +16,6 @@ namespace _Project
         [SerializeField] private MeshRenderer _meshrenderer;
 
         private ColorType _startColor;
-        
         public ColorType currentColor {  get; private set; }
 
         public void SetupStartColor(ColorType color)

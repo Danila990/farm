@@ -32,9 +32,10 @@ namespace _Project
             _userInputController.Active();
         }
 
-        public void Restart()
+        public void RestartGame()
         {
             _playerController.ResetPlayer();
+            _uiController.ResetUI();
         }
     }
 }

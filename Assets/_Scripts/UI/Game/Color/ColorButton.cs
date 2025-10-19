@@ -1,21 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityServiceLocator;
 
 namespace _Project
 {
     public class ColorButton : MonoBehaviour
     {
-        [SerializeField] private ColorType _playerCollor;
+        [field: SerializeField] public ColorType playerColor { get; private set; }
 
         private Button _button;
         private ColorPanel _colorPanel;
 
-        private void Start()
+        public void SetupButton(ColorPanel colorPanel)
         {
-            _colorPanel = ServiceLocator.Locator.Get<ColorPanel>();
+            _colorPanel = colorPanel;
             _button = GetComponent<Button>();
             _button.onClick.AddListener(ButtonClick);
+            ActiveButton();
         }
 
         private void OnDestroy()
@@ -23,9 +23,19 @@ namespace _Project
             _button.onClick.RemoveListener(ButtonClick);
         }
 
+        public void ActiveButton()
+        {
+            _button.interactable = true;
+        }
+
+        public void DeactiveButton()
+        {
+            _button.interactable = false;
+        }
+
         private void ButtonClick()
         {
-            _colorPanel.CollorButtonDown(_playerCollor);
+            _colorPanel.CollorButtonDown(this);
         }
     }
 }

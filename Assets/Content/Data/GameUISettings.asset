@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081db01448119c741b0c266e08502af4, type: 3}
   m_Name: GameUISettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.GameUISettings
-  <colorPanel>k__BackingField: {fileID: 5438990991206545178, guid: b8f80ed295eb93d4e8915f685b00bdcd, type: 3}
+  <colorPanel>k__BackingField: {fileID: 347035390190739526, guid: b8f80ed295eb93d4e8915f685b00bdcd, type: 3}

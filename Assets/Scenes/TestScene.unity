@@ -517,6 +517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 135869615}
   - component: {fileID: 135869614}
+  - component: {fileID: 135869621}
   - component: {fileID: 135869619}
   - component: {fileID: 135869618}
   - component: {fileID: 135869617}
@@ -541,7 +542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc3d96ef492d8c40a0b524ea15f5d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.GameBootstrap
-  _gridControoler: {fileID: 135869618}
+  _gameSettingsController: {fileID: 135869621}
+  _gridController: {fileID: 135869618}
   _userInputController: {fileID: 135869619}
   _playerController: {fileID: 135869617}
   _uiController: {fileID: 135869620}
@@ -585,7 +587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ed83813e86ded42b61c24c00c7f1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerController
-  _settings: {fileID: 11400000, guid: 2f2055d0d42da1149b42c3e45ca517b6, type: 2}
 --- !u!114 &135869618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,7 +626,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.GameUIController
   _mainCanvas: {fileID: 514543889}
-  _settings: {fileID: 11400000, guid: 1874dca9c50178a4eb79e8df399b1a73, type: 2}
+--- !u!114 &135869621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135869613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c67536c96c0d72c4fbad88b015ffcc78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameSettingController
+  _playerSettings: {fileID: 11400000, guid: 2f2055d0d42da1149b42c3e45ca517b6, type: 2}
+  _gameUISettings: {fileID: 11400000, guid: 1874dca9c50178a4eb79e8df399b1a73, type: 2}
 --- !u!1 &139757733
 GameObject:
   m_ObjectHideFlags: 0

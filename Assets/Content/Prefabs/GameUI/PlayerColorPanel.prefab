@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4de163d62727a4ab4a08c8cea6d94e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.PanelColorButton
-  _playerCollor: 2
+  <playerColor>k__BackingField: 2
 --- !u!1 &416214904607811175
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4de163d62727a4ab4a08c8cea6d94e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.PanelColorButton
-  _playerCollor: 1
+  <playerColor>k__BackingField: 1
 --- !u!1 &1292659052776603458
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 5592780385841263103}
   - component: {fileID: 9010874039457808891}
   - component: {fileID: 6661236079466441811}
-  - component: {fileID: 5438990991206545178}
+  - component: {fileID: 347035390190739526}
   m_Layer: 5
   m_Name: PlayerColorPanel
   m_TagString: Untagged
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &5438990991206545178
+--- !u!114 &347035390190739526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -384,9 +384,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1292659052776603458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc4f1e84b45a87c48884474db12d5275, type: 3}
+  m_Script: {fileID: 11500000, guid: e8de0731855ab3048a5990db03cbfbf0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.PlayerColorPanel
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.ColorPanel
 --- !u!1 &3372451051278802045
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4de163d62727a4ab4a08c8cea6d94e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.PanelColorButton
-  _playerCollor: 3
+  <playerColor>k__BackingField: 3
 --- !u!1 &8968096001513186912
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,4 +654,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4de163d62727a4ab4a08c8cea6d94e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.PanelColorButton
-  _playerCollor: 0
+  <playerColor>k__BackingField: 0

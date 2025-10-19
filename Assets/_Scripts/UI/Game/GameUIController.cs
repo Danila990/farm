@@ -6,8 +6,8 @@ namespace _Project
     public class GameUIController : MonoBehaviour
     {
         [SerializeField] private Canvas _mainCanvas;
-        [SerializeField] private GameUISettings _settings;
 
+        private GameUISettings _settings;
         private ColorPanel _colorPanel;
 
         private void OnValidate()
@@ -17,9 +17,15 @@ namespace _Project
 
         public void Configure()
         {
+            _settings = ServiceLocator.Locator.Get<GameUISettings>();
             CreateUI();
             SetupUI();
             Register();
+        }
+
+        public void ResetUI()
+        {
+            _colorPanel.RestartPanel();
         }
 
         private void Register()
