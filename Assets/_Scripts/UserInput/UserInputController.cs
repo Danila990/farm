@@ -4,7 +4,7 @@ using UnityServiceLocator;
 
 namespace _Project
 {
-    public class UserInputController : MonoBehaviour
+    public class UserInputController : MonoBehaviour, IController
     {
         [SerializeField] private UserInputType _userType;
 

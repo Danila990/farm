@@ -3,7 +3,7 @@ using UnityServiceLocator;
 
 namespace _Project
 {
-    public class GameUIController : MonoBehaviour
+    public class GameUIController : MonoBehaviour, IController
     {
         [SerializeField] private Canvas _mainCanvas;
 

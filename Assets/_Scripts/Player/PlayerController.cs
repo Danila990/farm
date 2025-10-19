@@ -3,7 +3,7 @@ using UnityServiceLocator;
 
 namespace _Project
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IController
     {
         private PlayerSettings _settings;
         private PlayerModel _playerModel;

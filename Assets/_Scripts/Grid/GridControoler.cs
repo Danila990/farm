@@ -3,7 +3,7 @@ using UnityServiceLocator;
 
 namespace _Project
 {
-    public class GridControoler : MonoBehaviour
+    public class GridControoler : MonoBehaviour, IController
     {
         [SerializeField] private GridMap _gridMap;
 

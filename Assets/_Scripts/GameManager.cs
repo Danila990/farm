@@ -3,7 +3,7 @@ using UnityServiceLocator;
 
 namespace _Project
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoBehaviour, IController
     {
         private UserInputController _userInputController;
         private GridControoler _gridController;
@@ -23,7 +23,6 @@ namespace _Project
                 .Get(out _playerController)
                 .Get(out _gridController)
                 .Get(out _uiController);
-
         }
 
         public void StartGame()
