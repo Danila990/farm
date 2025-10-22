@@ -13,7 +13,7 @@ namespace _Project
     [Serializable]
     public class PlayerInfo
     {
-        [field: SerializeField] public PlayerModel prefab { get; private set; }
+        [field: SerializeField] public PlayerView prefab { get; private set; }
         [field: SerializeField] public MoverStats stats { get; private set; }
         [field: SerializeField] public ColorType startColor { get; private set; }
     }
@@ -29,7 +29,7 @@ namespace _Project
     [Serializable]
     public class ArrowInfo
     {
-        [field: SerializeField] public PlayerFollowArrow prefab { get; private set; }
+        [field: SerializeField] public PlayerArrow prefab { get; private set; }
         [field: SerializeField] public ArrowStats stats { get; private set; }
     }
 

@@ -6,9 +6,9 @@ namespace _Project
     {
         private void Awake()
         {
-            var installers = GetComponents<IController>();
+            var installers = GetComponents<IInstaller>();
             foreach (var installer in installers)
-                installer.Configure();
+                installer.Install();
         }
     }
 }

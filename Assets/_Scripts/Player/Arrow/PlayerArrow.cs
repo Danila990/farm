@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _Project
 {
-    public class PlayerFollowArrow : MonoBehaviour
+    public class PlayerArrow : MonoBehaviour
     {
         private RotateComponent _rotate;
         private float _offsetY;

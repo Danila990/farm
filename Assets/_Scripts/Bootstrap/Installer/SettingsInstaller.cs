@@ -3,16 +3,17 @@ using UnityServiceLocator;
 
 namespace _Project
 {
-    public class GameSettingController : MonoBehaviour, IController
+    public class SettingsInstaller : MonoBehaviour, IInstaller
     {
         [SerializeField] private PlayerSettings _playerSettings;
         [SerializeField] private GameUISettings _gameUISettings;
 
-        public void Configure()
+        public void Install()
         {
-            ServiceLocator.Locator
-                .Register(_playerSettings)
-                .Register(_gameUISettings);
+            //REGISTER
+            ServiceLocator
+                .Set(_playerSettings)
+                .Set(_gameUISettings);
         }
     }
 }

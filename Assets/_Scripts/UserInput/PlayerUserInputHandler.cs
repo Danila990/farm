@@ -6,12 +6,12 @@ namespace _Project
     public class PlayerUserInputHandler : MonoBehaviour
     {
         private PlayerMover _playerMover;
-        private PlayerFollowArrow _playerArrow;
+        private PlayerArrow _playerArrow;
         private IUserInput _userInput;
 
         private void Start()
         {
-            ServiceLocator.Locator
+            ServiceLocator
                 .Get(out _userInput)
                 .Get(out _playerMover)
                 .Get(out _playerArrow);

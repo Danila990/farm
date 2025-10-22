@@ -3,10 +3,9 @@ using UnityServiceLocator;
 
 namespace _Project
 {
-    public class GameManager : MonoBehaviour, IController
+    public class GameManager : MonoBehaviour, IInstaller
     {
         private UserInputController _userInputController;
-        private GridControoler _gridController;
         private PlayerController _playerController;
         private GameUIController _uiController;
 
@@ -15,19 +14,18 @@ namespace _Project
             StartGame();
         }
 
-        public void Configure()
+        public void Install()
         {
-            ServiceLocator.Locator
-                .Register(this)
+            ServiceLocator
+                .Set(this)
                 .Get(out _userInputController)
                 .Get(out _playerController)
-                .Get(out _gridController)
                 .Get(out _uiController);
         }
 
         public void StartGame()
         {
-            _playerController.StartPlayer();
+            RestartGame();
             _userInputController.Active();
         }
 

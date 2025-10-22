@@ -14,7 +14,7 @@ namespace _Project
 
         public void Event()
         {
-            ServiceLocator.Locator.Get<GridEvents>().Event(platformType);
+            ServiceLocator.Get<GridEvents>().Event(platformType);
         }
 
     }

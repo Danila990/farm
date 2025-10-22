@@ -12,12 +12,12 @@ namespace _Project
                 case PlatformType.Finish:
                     break;
                 case PlatformType.Empty:
-                    ServiceLocator.Locator.Get<GameManager>().RestartGame();
+                    ServiceLocator.Get<GameManager>().RestartGame();
                     break;
                 case PlatformType.Fruit:
                     break;
                 case PlatformType.Rock:
-                    ServiceLocator.Locator.Get<GameManager>().RestartGame();
+                    ServiceLocator.Get<GameManager>().RestartGame();
                     break;
             }
         }

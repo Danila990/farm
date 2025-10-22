@@ -14,7 +14,7 @@ namespace _Project
 
         public void SetupPanel()
         {
-            ServiceLocator.Locator
+            ServiceLocator
                 .Get(out PlayerSettings playerColor)
                 .Get(out _playerColor);
 
