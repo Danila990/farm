@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Project
 {
-    public class PlayerColor : MonoBehaviour
+    public class PlayerColorChanger : MonoBehaviour
     {
         private readonly Dictionary<ColorType, Color> _colors = new Dictionary<ColorType, Color>()
         {
@@ -18,7 +18,7 @@ namespace _Project
         private ColorType _startColor;
         public ColorType currentColor {  get; private set; }
 
-        public void SetupStartColor(ColorType color)
+        public void SetupChanger(ColorType color)
         {
             _startColor = color;
             ChangeeColor(_startColor);

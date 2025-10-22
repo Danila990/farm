@@ -1,24 +1,21 @@
+using System;
 using System.Linq;
 using UnityEngine;
-using UnityServiceLocator;
 
 namespace _Project
 {
     public class ColorPanel : MonoBehaviour
     {
+        public event Action<ColorType> OnColorChanged;
+
         private ColorButton[] _colorButtons;
 
         private ColorType _startColor;
         private ColorButton _currentButton;
-        private PlayerColor _playerColor;
 
-        public void SetupPanel()
+        public void SetupPanel(ColorType startColor)
         {
-            ServiceLocator
-                .Get(out PlayerSettings playerColor)
-                .Get(out _playerColor);
-
-            _startColor = playerColor.playerInfo.startColor;
+            _startColor = startColor;
             SetupButtons();
             RestartPanel();
         }
@@ -28,7 +25,7 @@ namespace _Project
             _currentButton.ActiveButton();
             _currentButton = colorButton;
             _currentButton.DeactiveButton();
-            _playerColor.ChangeeColor(_currentButton.playerColor);
+            OnColorChanged?.Invoke(_currentButton.playerColor);
         }
 
         public void RestartPanel()

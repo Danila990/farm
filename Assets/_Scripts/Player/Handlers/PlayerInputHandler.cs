@@ -3,7 +3,7 @@ using UnityServiceLocator;
 
 namespace _Project
 {
-    public class PlayerUserInputHandler : MonoBehaviour
+    public class PlayerInputHandler : MonoBehaviour
     {
         private PlayerMover _playerMover;
         private PlayerArrow _playerArrow;

@@ -12,8 +12,7 @@ namespace _Project
         {
             //CREATE
             BaseUserInput userInput = CreateUserInput();
-            PlayerUserInputHandler inputHandler = userInput.AddComponent<PlayerUserInputHandler>();
-
+            
             //CONTROLLER
             UserInputController userInputController = new GameObject(nameof(UserInputController)).GetOrAddComponent<UserInputController>();
             userInputController.SetupController(userInput);

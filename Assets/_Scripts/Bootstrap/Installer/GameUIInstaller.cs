@@ -10,18 +10,24 @@ namespace _Project
         {
             //GET
             Canvas canvas = FindFirstObjectByType<Canvas>();
-            GameUISettings settings = ServiceLocator.Get<GameUISettings>();
+            ServiceLocator
+                .Get(out GameUISettings gameUISettings)
+                .Get(out PlayerSettings playerSettings);
 
             //CREATE
-            ColorPanel colorPanel = Instantiate(settings.colorPanel, canvas.transform);
+            ColorPanel colorPanel = Instantiate(gameUISettings.colorPanel, canvas.transform);
 
             //SETUP
-            colorPanel.SetupPanel();
+            colorPanel.SetupPanel(playerSettings.playerInfo.startColor);
 
             //CONTROLLER
             GameUIController gameUIController = new GameObject(nameof(GameUIController)).GetOrAddComponent<GameUIController>();
             gameUIController.SetupController(colorPanel);
-            ServiceLocator.Set(gameUIController);
+
+            //REGISTER
+            ServiceLocator
+                .Set(gameUIController)
+                .Set(colorPanel);
         }
     }
 }

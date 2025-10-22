@@ -6,9 +6,9 @@ namespace _Project
     {
         private PlayerArrow _arrow;
         private PlayerMover _mover;
-        private PlayerColor _playerColor;
+        private PlayerColorChanger _playerColor;
 
-        public void SetupController(PlayerMover mover, PlayerArrow arrow, PlayerColor playerColor)
+        public void SetupController(PlayerMover mover, PlayerArrow arrow, PlayerColorChanger playerColor)
         {
             _mover = mover;
             _arrow = arrow;
