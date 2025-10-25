@@ -14,8 +14,13 @@ namespace _Project
         {
             _coinCounter = ServiceLocator.Get<CoinCounter>();
             OnUpdateCount(_coinCounter.currentCount);
+            _coinCounter.OnUpdateCount += OnUpdateCount;
         }
 
+        private void OnDestroy()
+        {
+            _coinCounter.OnUpdateCount -= OnUpdateCount;
+        }
 
         private void OnUpdateCount(int count)
         {

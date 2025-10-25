@@ -15,6 +15,14 @@ namespace _Project.GridWindow
             serializedObject.ApplyModifiedProperties();
         }
 
+        public static void SerializedCustomPropetry(Object @object)
+        {
+            if (@object == null) return;
+
+            SerializedObject serializedObject = new SerializedObject(@object);
+            serializedObject.ApplyModifiedProperties();
+        }
+
         public static void BaseMidlleText(string text, int fontSize, int space = 0)
         {
             EditorGUILayout.Space(space);

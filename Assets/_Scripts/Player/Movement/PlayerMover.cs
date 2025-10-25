@@ -38,6 +38,11 @@ namespace _Project
             transform.position = playerPlatform.transform.position;
         }
 
+        public void StopPlayer()
+        {
+            StopAllCoroutines();
+        }
+
         public void SetInputDirection(DirectionType directionType)
         {
             _currentDirection = directionType;

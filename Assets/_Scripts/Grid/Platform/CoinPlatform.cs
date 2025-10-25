@@ -25,6 +25,8 @@ namespace _Project
 
         public override void Event()
         {
+            if(!_coin.activeSelf) return;
+
             _coin.SetActive(false);
             base.Event();
         }

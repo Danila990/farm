@@ -23,6 +23,7 @@ namespace _Project
             switch (platform.platformType)
             {
                 case PlatformType.Finish:
+                    Finish();
                     break;
 
                 case PlatformType.Empty:
@@ -37,6 +38,12 @@ namespace _Project
                     _gameManager.RestartGame();
                     break;
             }
+        }
+
+        private void Finish()
+        {
+            if(_coinCounter.currentCount == _coinCounter.maxCount)
+                _gameManager.FinishGame();
         }
 
         private void Coin(CoinPlatform platform)

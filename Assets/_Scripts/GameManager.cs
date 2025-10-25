@@ -37,5 +37,11 @@ namespace _Project
             _playerController.ResetPlayer();
             _uiController.ResetUI();
         }
+
+        public void FinishGame()
+        {
+            _userInputController.Deactive();
+            _playerController.StopPlayer();
+        }
     }
 }

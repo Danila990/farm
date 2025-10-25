@@ -376,17 +376,17 @@ namespace _Project.GridWindow
             for (int i = 0; i < _linesX.Length; i++)
             {
                 EditorGUILayout.Space(5);
-                EditorGUILayout.BeginHorizontal(GUILayout.Width(50));
+                EditorGUILayout.BeginHorizontal(GUILayout.Width(100));
 
                 for (int j = 0; j < _linesX[i].lineY.Length; j++)
                 {
-                    EditorGUILayout.BeginVertical(GUILayout.Width(50));
+                    EditorGUILayout.BeginVertical(GUILayout.Width(60));
 
                     Rect rect = GUILayoutUtility.GetRect(20, 20);
                     EditorGUI.DrawRect(rect, GetPlatformColor(_linesX[i].lineY[j]));
 
                     _linesX[i].lineY[j] = (PlatformType)EditorGUILayout.EnumPopup(_linesX[i].lineY[j]);
-
+                    EditorGUILayout.ObjectField(_gridMap.GetPlatforms()[i+1].Values[j+1].gameObject, typeof(Platform), true);
                     EditorGUILayout.EndVertical();
                     EditorGUILayout.Space(5);
                 }

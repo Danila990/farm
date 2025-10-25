@@ -21,5 +21,10 @@ namespace _Project
             _arrow.ResetArrow();
             _playerColor.ResetColor();
         }
+
+        public void StopPlayer()
+        {
+            _mover.StopPlayer();
+        }
     }
 }
