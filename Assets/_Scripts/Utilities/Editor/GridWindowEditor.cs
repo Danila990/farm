@@ -255,7 +255,6 @@ namespace _Project.GridWindow
             }
 
             _gridMap.SetupMap(grid);
-            _gridMap.AddComponent<GridEvents>();
             Undo.RegisterCreatedObjectUndo(_gridMap.gameObject, "Create Grid map");
             EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
         }
@@ -344,15 +343,15 @@ namespace _Project.GridWindow
             {
                     new ConstructorLine()
                     {
-                        lineY = new PlatformType[3]{ PlatformType.StartPlayer, PlatformType.Default, PlatformType.Fruit }
+                        lineY = new PlatformType[3]{ PlatformType.StartPlayer, PlatformType.Default, PlatformType.Coin }
                     },
                     new ConstructorLine()
                     {
-                        lineY = new PlatformType[3]{ PlatformType.Empty, PlatformType.Fruit, PlatformType.Rock }
+                        lineY = new PlatformType[3]{ PlatformType.Empty, PlatformType.Coin, PlatformType.Rock }
                     },
                     new ConstructorLine()
                     {
-                        lineY = new PlatformType[3]{ PlatformType.Fruit, PlatformType.Default, PlatformType.Finish }
+                        lineY = new PlatformType[3]{ PlatformType.Coin, PlatformType.Default, PlatformType.Finish }
                     }
             };
         }
@@ -404,7 +403,7 @@ namespace _Project.GridWindow
                 PlatformType.StartPlayer => Color.green,
                 PlatformType.Empty => Color.black,
                 PlatformType.Finish => Color.blue,
-                PlatformType.Fruit => Color.yellow,
+                PlatformType.Coin => Color.yellow,
                 PlatformType.Rock => Color.red,
                 _ => Color.gray,
             };

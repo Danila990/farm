@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GameUISettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.GameUISettings
   <colorPanel>k__BackingField: {fileID: 347035390190739526, guid: b8f80ed295eb93d4e8915f685b00bdcd, type: 3}
+  <coinView>k__BackingField: {fileID: 2797852391499100614, guid: 0c48b9ff80961b4498fb4757ecf28cb8, type: 3}

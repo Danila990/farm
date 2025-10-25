@@ -6,7 +6,7 @@ namespace _Project
         StartPlayer = 1,
         Finish = 2,
         Empty = 3,
-        Fruit = 4,
+        Coin = 4,
         Rock = 5,
     }
 }

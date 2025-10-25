@@ -7,6 +7,7 @@ namespace _Project
     {
         private UserInputController _userInputController;
         private PlayerController _playerController;
+        private GridController _gridController;
         private GameUIController _uiController;
 
         private void Start()
@@ -20,6 +21,7 @@ namespace _Project
                 .Set(this)
                 .Get(out _userInputController)
                 .Get(out _playerController)
+                .Get(out _gridController)
                 .Get(out _uiController);
         }
 
@@ -31,6 +33,7 @@ namespace _Project
 
         public void RestartGame()
         {
+            _gridController.ResetGrid();
             _playerController.ResetPlayer();
             _uiController.ResetUI();
         }

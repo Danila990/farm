@@ -26,7 +26,7 @@ namespace _Project
             colorChanger.SetupChanger(settings.playerInfo.startColor);
 
             //CONTROLLER
-            PlayerController playerController = new GameObject(nameof(PlayerController)).GetOrAddComponent<PlayerController>();
+            PlayerController playerController = new GameObject(nameof(PlayerController)).AddComponent<PlayerController>();
             playerController.SetupController(mover, playerArrow, colorChanger);
 
             //REGISTER

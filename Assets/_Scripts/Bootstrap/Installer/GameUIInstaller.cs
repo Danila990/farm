@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityServiceLocator;
 
@@ -16,12 +15,13 @@ namespace _Project
 
             //CREATE
             ColorPanel colorPanel = Instantiate(gameUISettings.colorPanel, canvas.transform);
+            CoinView coinView = Instantiate(gameUISettings.coinView, canvas.transform);
 
             //SETUP
             colorPanel.SetupPanel(playerSettings.playerInfo.startColor);
 
             //CONTROLLER
-            GameUIController gameUIController = new GameObject(nameof(GameUIController)).GetOrAddComponent<GameUIController>();
+            GameUIController gameUIController = new GameObject(nameof(GameUIController)).AddComponent<GameUIController>();
             gameUIController.SetupController(colorPanel);
 
             //REGISTER

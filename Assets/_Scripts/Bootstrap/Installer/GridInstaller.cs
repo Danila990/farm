@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityServiceLocator;
 
@@ -9,12 +10,22 @@ namespace _Project
         {
             //GET
             GridMap gridMap = FindFirstObjectByType<GridMap>();
-            GridEvents gridEvents = gridMap.GetComponent<GridEvents>();
+            PlatformEvents platformEvents = gridMap.AddComponent<PlatformEvents>();
+            CoinCounter coinCounter = gridMap.AddComponent<CoinCounter>();
+
+            //SETUP
+            coinCounter.SetupCounter(gridMap);
+
+            //CONTROLLER
+            GridController gridController = new GameObject(nameof(GridController)).AddComponent<GridController>();
+            gridController.SetupController(coinCounter, gridMap);
 
             //REGISTER
             ServiceLocator
+                .Set(gridController)
                 .Set<IGridMap>(gridMap)
-                .Set(gridEvents);
+                .Set<IPlatformEvent>(platformEvents)
+                .Set(coinCounter);
         }
     }
 }

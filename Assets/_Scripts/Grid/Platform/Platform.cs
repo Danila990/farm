@@ -12,9 +12,9 @@ namespace _Project
 
         public void SetIndex(Vector2Int index) => platformIndex = index;
 
-        public void Event()
+        public virtual void Event()
         {
-            ServiceLocator.Get<GridEvents>().Event(platformType);
+            ServiceLocator.Get<IPlatformEvent>().Event(this);
         }
 
     }

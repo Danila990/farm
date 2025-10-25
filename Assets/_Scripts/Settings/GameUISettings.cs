@@ -6,5 +6,6 @@ namespace _Project
     public class GameUISettings : ScriptableObject
     {
         [field: SerializeField] public ColorPanel colorPanel { get; private set; }
+        [field: SerializeField] public CoinView coinView { get; private set; }
     }
 }

@@ -3,18 +3,19 @@ using UnityServiceLocator;
 
 namespace _Project
 {
-    public class GridEvents : MonoBehaviour
+    public class PlatformEvents : MonoBehaviour, IPlatformEvent
     {
-        public void Event(PlatformType platformType)
+        public void Event(Platform platform)
         {
-            switch (platformType)
+            switch (platform.platformType)
             {
                 case PlatformType.Finish:
                     break;
                 case PlatformType.Empty:
                     ServiceLocator.Get<GameManager>().RestartGame();
                     break;
-                case PlatformType.Fruit:
+                case PlatformType.Coin:
+                    ServiceLocator.Get<CoinCounter>().AddCoint();
                     break;
                 case PlatformType.Rock:
                     ServiceLocator.Get<GameManager>().RestartGame();
