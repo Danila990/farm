@@ -5,7 +5,7 @@ namespace _Project
 {
     public class GameManager : MonoBehaviour, IInstaller
     {
-        private UserInputController _userInputController;
+        private InputController _inputController;
         private PlayerController _playerController;
         private GridController _gridController;
         private GameUIController _uiController;
@@ -19,7 +19,7 @@ namespace _Project
         {
             ServiceLocator
                 .Set(this)
-                .Get(out _userInputController)
+                .Get(out _inputController)
                 .Get(out _playerController)
                 .Get(out _gridController)
                 .Get(out _uiController);
@@ -28,7 +28,7 @@ namespace _Project
         public void StartGame()
         {
             RestartGame();
-            _userInputController.Active();
+            _inputController.Active();
         }
 
         public void RestartGame()
@@ -40,7 +40,7 @@ namespace _Project
 
         public void FinishGame()
         {
-            _userInputController.Deactive();
+            _inputController.Deactive();
             _playerController.StopPlayer();
         }
     }

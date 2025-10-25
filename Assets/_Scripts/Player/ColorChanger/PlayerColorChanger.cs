@@ -7,7 +7,6 @@ namespace _Project
     {
         private readonly Dictionary<ColorType, Color> _colors = new Dictionary<ColorType, Color>()
         {
-            {ColorType.While, Color.white},
             {ColorType.Red, Color.red},
             {ColorType.Green, Color.green},
             {ColorType.Blue, Color.blue }

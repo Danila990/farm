@@ -2,21 +2,21 @@ using UnityEngine;
 
 namespace _Project
 {
-    public class UserInputController : MonoBehaviour
+    public class InputController : MonoBehaviour
     {
         private bool _isActive = false;
-        private IUserInput _userInput;
+        private InputService _inputService;
 
-        public void SetupController(IUserInput userInput)
+        public void SetupController(InputService inputService)
         {
-            _userInput = userInput;
+            _inputService = inputService;
         }
 
         private void Update()
         {
-            if(!_isActive || _userInput == null) return;
+            if (!_isActive) return;
 
-            _userInput.Tick();
+            _inputService.Tick();
         }
 
         public void Active()

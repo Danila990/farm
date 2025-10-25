@@ -12,12 +12,11 @@ namespace _Project
         {
             Color newColor = color switch
             {
-                ColorType.While => Color.white,
                 ColorType.Red => Color.red,
                 ColorType.Green => Color.green,
                 ColorType.Blue => Color.blue,
 
-                _ => Color.white,
+                _ => Color.red
             };
 
             _coin.GetComponent<MeshRenderer>().material.color = newColor;

@@ -2,9 +2,8 @@ namespace _Project
 {
     public enum ColorType
     {
-        While = 0,
-        Red = 1,
-        Green = 2,
-        Blue = 3,
+        Red = 0,
+        Green = 1,
+        Blue = 2,
     }
 }

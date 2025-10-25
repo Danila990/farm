@@ -1,6 +1,6 @@
 namespace _Project
 {
-    public enum UserInputType
+    public enum InputType
     {
         Pc = 0,
         Mobile = 1,

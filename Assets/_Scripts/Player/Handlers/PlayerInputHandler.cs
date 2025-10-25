@@ -7,24 +7,24 @@ namespace _Project
     {
         private PlayerMover _playerMover;
         private PlayerArrow _playerArrow;
-        private IUserInput _userInput;
+        private IInputService _inputService;
 
         private void Start()
         {
             ServiceLocator
-                .Get(out _userInput)
+                .Get(out _inputService)
                 .Get(out _playerMover)
                 .Get(out _playerArrow);
 
-            _userInput.OnDirectionInput += OnUserInput;
+            _inputService.DirectionChanged += OnDirectionChanged;
         }
 
         private void OnDestroy()
         {
-            _userInput.OnDirectionInput -= OnUserInput;
+            _inputService.DirectionChanged -= OnDirectionChanged;
         }
 
-        private void OnUserInput(DirectionType direction)
+        private void OnDirectionChanged(DirectionType direction)
         {
             _playerMover.SetInputDirection(direction);
             _playerArrow.SetInputDirection(direction);
