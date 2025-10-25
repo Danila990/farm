@@ -14,7 +14,7 @@ namespace _Project
 
         public virtual void Event()
         {
-            ServiceLocator.Get<IPlatformEvent>().Event(this);
+            ServiceLocator.Get<PlatformEvents>().Event(this);
         }
 
     }

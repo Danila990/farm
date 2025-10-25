@@ -914,6 +914,7 @@ MonoBehaviour:
   <canMove>k__BackingField: 1
   <platformIndex>k__BackingField: {x: 2, y: 2}
   _coin: {fileID: 2055717674}
+  <color>k__BackingField: 1
 --- !u!1 &514543886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2752,6 +2753,7 @@ MonoBehaviour:
   <canMove>k__BackingField: 1
   <platformIndex>k__BackingField: {x: 3, y: 1}
   _coin: {fileID: 281070235}
+  <color>k__BackingField: 3
 --- !u!1 &1455976701
 GameObject:
   m_ObjectHideFlags: 0
@@ -3676,6 +3678,7 @@ MonoBehaviour:
   <canMove>k__BackingField: 1
   <platformIndex>k__BackingField: {x: 1, y: 3}
   _coin: {fileID: 2143530917}
+  <color>k__BackingField: 1
 --- !u!1 &1906143202
 GameObject:
   m_ObjectHideFlags: 0

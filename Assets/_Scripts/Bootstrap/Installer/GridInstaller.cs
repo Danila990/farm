@@ -24,7 +24,7 @@ namespace _Project
             ServiceLocator
                 .Set(gridController)
                 .Set<IGridMap>(gridMap)
-                .Set<IPlatformEvent>(platformEvents)
+                .Set(platformEvents)
                 .Set(coinCounter);
         }
     }
